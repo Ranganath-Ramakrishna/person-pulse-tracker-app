@@ -8,7 +8,7 @@ export const MobileHeader = () => {
   return (
     <header className="w-full p-4 border-b flex items-center justify-between lg:hidden">
       <div className="flex items-center gap-2">
-        <SidebarTrigger asChild>
+        <SidebarTrigger>
           <Button variant="ghost" size="icon">
             <Menu size={20} />
             <span className="sr-only">Toggle Sidebar</span>

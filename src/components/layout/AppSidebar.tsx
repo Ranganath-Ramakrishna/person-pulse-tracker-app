@@ -82,7 +82,7 @@ export const AppSidebar = () => {
       <SidebarFooter className="p-4">
         <div className="flex items-center justify-between">
           <span className="text-sm text-muted-foreground">Person Pulse Tracker</span>
-          <SidebarTrigger asChild>
+          <SidebarTrigger>
             <Button variant="outline" size="icon" className="h-8 w-8">
               <span className="sr-only">Toggle Sidebar</span>
               <span className="h-4 w-4 rotate-180">
