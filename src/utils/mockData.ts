@@ -1,4 +1,3 @@
-
 import { Person } from '@/components/people/PersonCard';
 import { Content } from '@/components/content/ContentCard';
 
@@ -97,6 +96,18 @@ export const mockPeople: Person[] = [
       articles: 23,
       videos: 15,
       podcasts: 187,
+    },
+    isTracking: false,
+  },
+  {
+    id: '9',
+    name: 'Satya Nadella',
+    description: 'CEO of Microsoft, focused on cloud computing, AI, and digital transformation.',
+    tags: ['Tech', 'CEO', 'Microsoft', 'Cloud'],
+    contentCount: {
+      articles: 65,
+      videos: 42,
+      podcasts: 31,
     },
     isTracking: false,
   },

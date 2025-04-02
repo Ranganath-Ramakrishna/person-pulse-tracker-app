@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { SearchBar } from '@/components/search/SearchBar';
@@ -13,9 +12,12 @@ const Search = () => {
   const { toast } = useToast();
 
   const handleSearch = (query: string) => {
-    // In a real app, this would be an API call
+    // Improved search that does case-insensitive partial matching
+    const normalizedQuery = query.toLowerCase().trim();
     const results = mockPeople.filter(person =>
-      person.name.toLowerCase().includes(query.toLowerCase())
+      person.name.toLowerCase().includes(normalizedQuery) || 
+      (person.description && person.description.toLowerCase().includes(normalizedQuery)) ||
+      person.tags.some(tag => tag.toLowerCase().includes(normalizedQuery))
     );
     
     setSearchResults(results);
@@ -25,6 +27,11 @@ const Search = () => {
       toast({
         title: "No results found",
         description: `We couldn't find any people matching "${query}". Try a different search term.`,
+      });
+    } else {
+      toast({
+        title: `Found ${results.length} result${results.length === 1 ? '' : 's'}`,
+        description: `${results.length} people match your search for "${query}".`,
       });
     }
   };
