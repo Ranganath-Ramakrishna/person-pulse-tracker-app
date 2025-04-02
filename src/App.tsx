@@ -10,6 +10,10 @@ import Search from "./pages/Search";
 import People from "./pages/People";
 import PersonDetail from "./pages/PersonDetail";
 import NotFound from "./pages/NotFound";
+import { AppLayout } from "./components/layout/AppLayout";
+import Articles from "./pages/content/Articles";
+import Videos from "./pages/content/Videos";
+import Podcasts from "./pages/content/Podcasts";
 
 // Create a new QueryClient instance outside of the component
 const queryClient = new QueryClient();
@@ -23,10 +27,13 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/people" element={<People />} />
-              <Route path="/people/:id" element={<PersonDetail />} />
+              <Route path="/" element={<AppLayout><Dashboard /></AppLayout>} />
+              <Route path="/search" element={<AppLayout><Search /></AppLayout>} />
+              <Route path="/people" element={<AppLayout><People /></AppLayout>} />
+              <Route path="/people/:id" element={<AppLayout><PersonDetail /></AppLayout>} />
+              <Route path="/content/articles" element={<AppLayout><Articles /></AppLayout>} />
+              <Route path="/content/videos" element={<AppLayout><Videos /></AppLayout>} />
+              <Route path="/content/podcasts" element={<AppLayout><Podcasts /></AppLayout>} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
